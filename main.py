@@ -1,6 +1,6 @@
-import requests
-from bs4 import BeautifulSoup
-import pyttsx3
+import requests  #pip install requests
+from bs4 import BeautifulSoup # pip install bs4 # pip install html5lib
+import pyttsx3 # pip install pyttsx3
 
 engine = pyttsx3.init('sapi5')
 
@@ -38,3 +38,5 @@ while True:
         # print(html)
         soup = BeautifulSoup(html, 'html.parser')
         print(soup.prettify)
+        
+        
