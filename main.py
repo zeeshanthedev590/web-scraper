@@ -1,16 +1,20 @@
-import requests  #pip install requests
-from bs4 import BeautifulSoup # pip install bs4 # pip install html5lib
-import pyttsx3 # pip install pyttsx3
+import requests  # pip install requests
+from bs4 import BeautifulSoup  # pip install bs4 # pip install html5lib
+import pyttsx3  # pip install pyttsx3
 
 engine = pyttsx3.init('sapi5')
 
 voice = engine.getProperty('voices')  # getting details of current voice
 
 engine.setProperty('voice', voice[0].id)
+
+
 def speak(audio):
     engine.say(audio)
 
-    engine.runAndWait()  # Without this command, speech will not be audible to us.
+    # Without this command, speech will not be audible to us.
+    engine.runAndWait()
+
 
 speak("Welcome To Code Scraper By Zeeshan Khalid ......... Okay Write Full Domain Name With http://")
 while True:
@@ -38,5 +42,8 @@ while True:
         # print(html)
         soup = BeautifulSoup(html, 'html.parser')
         print(soup.prettify)
-        
-        
+        a = str(soup.prettify)
+    file = input("Enter A File Name To Store The Code : ")
+    f = open(file, 'w+')
+    f.write(a)
+    f.close()
